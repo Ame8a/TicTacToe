@@ -1,0 +1,178 @@
+# board look
+#    # # 
+#   #####
+#    # # 
+#   #####
+#    # # 
+# (one+"#"+two+"#"+three+"\n"+"######\n"+four+"#"+five+"#"+six+"\n"+"######\n"+seven+"#"+eight+"#"+nine)
+# (swdata(one)+"#"+swdata(two)+"#"+swdata(three)+"\n"+"#####\n"+swdata(four)+"#"+swdata(five)+"#"+swdata(six)+"\n"+"#####\n"+swdata(seven)+"#"+swdata(eight)+"#"+swdata(nine)+"\n")
+
+print (" Welcome to TicTacToe by Alan\n")
+one=None 
+two=None
+three=None
+four=None
+five=None
+six=None
+seven=None
+eight=None
+nine=None
+
+#function swapping bool date to crosses circles or none (true is circle andfalse is cross)
+def swdata(place):
+    if place == None:
+        place = " "
+        return place 
+    elif place == True:
+        place = "O"
+        return place
+    elif place == False:
+        place = "X"
+        return place
+
+#this block lets you chose "your sign" with first move
+print("You want to play with X or with O?\nInput your sign (X/O): ")
+player = input()
+if player == "X":
+    sign = False 
+    print ("You have chosen X, \nthis is your board\n")
+    print(swdata(one)+"#"+swdata(two)+"#"+swdata(three)+"\n"+"#####\n"+swdata(four)+"#"+swdata(five)+"#"+swdata(six)+"\n"+"#####\n"+swdata(seven)+"#"+swdata(eight)+"#"+swdata(nine)+"\n")
+elif player == "O": 
+    sign = True
+    print ("You have chosen O, \nthis is your board\n")
+    print(swdata(one)+"#"+swdata(two)+"#"+swdata(three)+"\n"+"#####\n"+swdata(four)+"#"+swdata(five)+"#"+swdata(six)+"\n"+"#####\n"+swdata(seven)+"#"+swdata(eight)+"#"+swdata(nine)+"\n")
+else: 
+    sign = True
+    print ("You did not chose any sign, you'll play O by defalut.\n"), 
+    player="O"
+    print(swdata(one)+"#"+swdata(two)+"#"+swdata(three)+"\n"+"#####\n"+swdata(four)+"#"+swdata(five)+"#"+swdata(six)+"\n"+"#####\n"+swdata(seven)+"#"+swdata(eight)+"#"+swdata(nine)+"\n")
+
+print ("Chose one from 9 blank spaces (input any number between 1 and 9):")
+
+while sign is not None:
+    lose = False
+
+
+    move = int(input())
+    print("\n")
+
+#moves per turn
+    while lose is False:
+
+        if move == 1:
+            if one is None:
+                one=sign
+            else: 
+                print("This space is allready filled, try again")
+                sign= not sign
+        elif move == 2:
+            if two is None:
+                two=sign
+            else: 
+                print("This space is allready filled, try again")
+                sign= not sign
+        elif move == 3: 
+            if three is None:
+                three=sign
+            else: 
+                print("This space is allready filled, try again")
+                sign= not sign
+        elif move == 4:
+            if four is None:    
+                four=sign
+            else: 
+                print("This space is allready filled, try again")
+                sign= not sign
+        elif move == 5:
+            if five is None:
+                five=sign
+            else: 
+                print("This space is allready filled, try again")
+                sign= not sign
+        elif move == 6:
+            if six is None:
+                six=sign
+            else: 
+                print("This space is allready filled, try again")
+                sign= not sign
+        elif move == 7:
+            if seven is None:
+                seven=sign
+            else: 
+                print("This space is allready filled, try again")
+                sign= not sign
+        elif move == 8:
+            if eight is None:
+                eight=sign
+            else: 
+                print("This space is allready filled, try again")
+                sign= not sign
+        elif move == 9:
+            if nine is None:
+                nine=sign
+            else: 
+                print("This space is allready filled, try again")
+                sign= not sign
+#end of moves 
+
+#this block changes sign every turn + prints board + prints whomever turn it is at this moment 
+        else: print ("You didnt enter any space, you lose a move")
+        if sign: print("It is X turn:\n")
+        if not sign: print ("It is O turn:\n")
+        sign = not sign
+        print(swdata(one)+"#"+swdata(two)+"#"+swdata(three)+"\n"+"#####\n"+swdata(four)+"#"+swdata(five)+"#"+swdata(six)+"\n"+"#####\n"+swdata(seven)+"#"+swdata(eight)+"#"+swdata(nine)+"\n")
+        lose = True
+#all possible wins for cicles in this block 
+        if one is True and two is True and three is True:
+            print ("Circles win!") 
+            sign = None 
+        elif four is True and five is True and six is True:
+            print ("Circles win!") 
+            sign = None
+        elif seven is True and eight is True and nine is True:
+            print ("Circles win!") 
+            sign = None
+        elif one is True and four is True and seven is True:
+            print ("Circles win!") 
+            sign = None
+        elif two is True and five is True and eight is True:
+            print ("Circles win!") 
+            sign = None
+        elif three is True and six is True and nine is True:
+            print ("Circles win!") 
+            sign = None
+        elif one is True and five is True and nine is True: 
+            print ("Circles win!") 
+            sign = None
+        elif three is True and five is True and seven is True:
+            print ("Circles win!") 
+#all possible wins for crosses in this block
+        if one is False and two is False and three is False:
+            print ("Crosses win!") 
+            sign = None 
+        elif four is False and five is False and six is False:
+            print ("Crosses win!") 
+            sign = None
+        elif seven is False and eight is False and nine is False:
+            print ("Crosses win!") 
+            sign = None
+        elif one is False and four is False and nine is False:
+            print ("Crosses win!") 
+            sign = None
+        elif two is False and five is False and eight is False:
+            print ("Crosses win!") 
+            sign = None
+        elif three is False and six is False and nine is False:
+            print ("Crosses win!") 
+            sign = None
+        elif one is False and five is False and seven is False: 
+            print ("Crosses win!") 
+            sign = None
+        elif three is False and five is False and nine is False:
+            print ("Crosses win!")
+        elif one and two and three and four and five and six and  seven and eight and nine is True and False:
+            print ("Draw")
+            sign = None 
+#when sign is gone game is over
+
+print ("Over")
